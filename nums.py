@@ -33,6 +33,7 @@ num_to_words = {v: k for k, v in word_to_nums.items()}
 
 def taken_days():
     days = []
-    for filename in os.scandir("day"):
-        days.append(word_to_nums[filename.path.split("/")[1]])
+    for filename in os.scandir("solutions"):
+        word_num = filename.path.split("/")[1].split("_")[1]
+        days.append(word_to_nums[word_num])
     return days

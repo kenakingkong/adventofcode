@@ -1,11 +1,7 @@
 import os
 import argparse
-from nums import num_to_words, taken_days
-
-
-def generate_day_directory():
-    if not os.path.exists("day"):
-        os.mkdir("day")
+from nums import taken_days
+from directory import generate_solutions_dir, get_dir_name
 
 
 def get_day():
@@ -24,7 +20,7 @@ def get_day():
 
 
 def create_and_write_files(day):
-    dir_name = "day/{}".format(num_to_words[day])
+    dir_name = get_dir_name(day)
     script_filename = os.path.join(dir_name, "script.py")
     input_filename = os.path.join(dir_name, "input.txt")
     p1_test_input_filename = os.path.join(dir_name, "p1_test_input.txt")
@@ -50,7 +46,7 @@ def create_and_write_files(day):
 
 
 def main():
-    generate_day_directory()
+    generate_solutions_dir()
     day = get_day()
     create_and_write_files(day)
 
