@@ -12,7 +12,7 @@ import utils
 
 
 def parse_input_file():
-    content = utils.read_input_file()
+    content = utils.open_input_file()
 
     # create data structure
     # fit content into data structure

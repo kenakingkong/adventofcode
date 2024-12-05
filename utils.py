@@ -38,9 +38,9 @@ def taken_days():
         days.append(word_to_nums[filename.path.split("/")[1]])
     return days
 
-def read_input_file():
+def open_input_file():
     parser = argparse.ArgumentParser()
     parser.add_argument("input_file", type=argparse.FileType("r"))
     args = parser.parse_args()
     input_io = args.input_file
-    return input_io.read()
+    return input_io
