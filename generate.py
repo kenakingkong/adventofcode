@@ -27,7 +27,9 @@ def create_and_write_files(day):
     dir_name = "day/{}".format(num_to_words[day])
     script_filename = os.path.join(dir_name, "script.py")
     input_filename = os.path.join(dir_name, "input.txt")
-    test_input_filename = os.path.join(dir_name, "test_input.txt")
+    p1_test_input_filename = os.path.join(dir_name, "p1_test_input.txt")
+    p2_test_input_filename = os.path.join(dir_name, "p2_test_input.txt")
+    data_files = input_filename, p1_test_input_filename, p2_test_input_filename
 
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
@@ -39,18 +41,12 @@ def create_and_write_files(day):
     with open(script_filename, "w") as file, open("boilerplate.py", "r") as copy_file:
         for line in copy_file:
             file.write(line)
-
     print("created file: {}".format(script_filename))
 
-    with open(input_filename, "w") as file:
-        file.write("")
-
-    print("created file: {}".format(input_filename))
-
-    with open(test_input_filename, "w") as file:
-        file.write("")
-
-    print("created file: {}".format(test_input_filename))
+    for data_file in data_files:
+        with open(data_file, "w") as file:
+            file.write("")
+        print("created file: {}".format(data_file))
 
 
 def main():

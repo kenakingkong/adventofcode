@@ -11,12 +11,12 @@ input: [https://adventofcode.com/2024/day/1/input](https://adventofcode.com/2024
 
 ## run code for a day
 ```
-python3 run.py 1
+python3 run.py [-p1 | -p2] 1
 ```
 
 ## run tests for a day
 ```
-python3 run_tests.py 1
+python3 run_tests.py [-p1 | -p2] 1
 ```
 
 ## generate boilerplate for a day
