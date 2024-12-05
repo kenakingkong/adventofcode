@@ -1,12 +1,14 @@
 import os
+import subprocess
 import argparse
 from utils import taken_days, num_to_words
 
+
 def get_day():
     parser = argparse.ArgumentParser(prog="generate.py")
-    parser.add_argument("day", type=int, nargs=1)
+    parser.add_argument("day", type=int)
     args = parser.parse_args()
-    day = args.day[0]
+    day = args.day
 
     if day < 1 or day > 25 or day not in taken_days():
         parser.error("could not find files for day: {}".format(day))
@@ -22,9 +24,13 @@ def run_script(day):
     if not os.path.exists(script_filename) or not os.path.exists(input_filename):
         print("could not find files for day: {}\n".format(day))
         os._exit(1)
-    else:
-        print("running: {}\n".format(dir_name))
-        os.system("python3 {} {}".format(script_filename, input_filename))
+
+    print("running: {}\n".format(dir_name))
+
+    command = ["python3", script_filename, input_filename]
+    result = subprocess.run(command, capture_output=True, text=True)
+    answer = result.stdout.strip()
+    print("Answer: {}".format(answer))
 
 
 def main():

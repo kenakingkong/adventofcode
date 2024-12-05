@@ -27,6 +27,7 @@ def create_and_write_files(day):
     dir_name = "day/{}".format(num_to_words[day])
     script_filename = os.path.join(dir_name, "script.py")
     input_filename = os.path.join(dir_name, "input.txt")
+    test_input_filename = os.path.join(dir_name, "test_input.txt")
 
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
@@ -45,7 +46,12 @@ def create_and_write_files(day):
         file.write("")
 
     print("created file: {}".format(input_filename))
-    print("\n")
+
+    with open(test_input_filename, "w") as file:
+        file.write("")
+
+    print("created file: {}".format(test_input_filename))
+
 
 
 def main():
