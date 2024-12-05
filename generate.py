@@ -2,7 +2,10 @@ import os
 import argparse
 from utils import num_to_words, taken_days
 
-# content = '\ndef main():\n\t\t# write code\n\t\treturn\n\n\nif __name__ == "__main__":\n\t\tmain()\n'
+
+def generate_day_directory():
+    if not os.path.exists("day"):
+        os.mkdir("day")
 
 
 def get_day():
@@ -46,6 +49,7 @@ def create_and_write_files(day):
 
 
 def main():
+    generate_day_directory()
     day = get_day()
     create_and_write_files(day)
 
