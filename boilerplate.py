@@ -1,6 +1,6 @@
 """
-  Problem Description:
-  ---
+	Problem Description:
+  	---
 """
 
 from utils import read_input_file
