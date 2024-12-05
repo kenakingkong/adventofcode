@@ -3,11 +3,16 @@
   	---
 """
 
-from utils import read_input_file
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent.parent.parent))
+
+import utils
 
 
 def parse_input_file():
-    content = read_input_file()
+    content = utils.read_input_file()
 
     # create data structure
     # fit content into data structure

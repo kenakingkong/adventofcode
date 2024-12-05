@@ -2,7 +2,6 @@ import os
 import argparse
 from utils import taken_days, num_to_words
 
-
 def get_day():
     parser = argparse.ArgumentParser(prog="generate.py")
     parser.add_argument("day", type=int, nargs=1)
