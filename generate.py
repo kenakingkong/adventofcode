@@ -1,6 +1,6 @@
 import os
 import argparse
-from utils import num_to_words, taken_days
+from nums import num_to_words, taken_days
 
 
 def generate_day_directory():
@@ -51,7 +51,6 @@ def create_and_write_files(day):
         file.write("")
 
     print("created file: {}".format(test_input_filename))
-
 
 
 def main():

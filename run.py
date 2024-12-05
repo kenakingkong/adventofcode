@@ -1,22 +1,28 @@
 import os
 import subprocess
 import argparse
-from utils import taken_days, num_to_words
+from nums import taken_days, num_to_words
 
 
-def get_day():
-    parser = argparse.ArgumentParser(prog="generate.py")
+def get_args():
+    parser = argparse.ArgumentParser(prog="run.py")
+    parser.add_argument("-p1", "--part-one", action='store_true')
+    parser.add_argument("-p2", "--part-two", action='store_true')
     parser.add_argument("day", type=int)
+
     args = parser.parse_args()
     day = args.day
 
     if day < 1 or day > 25 or day not in taken_days():
         parser.error("could not find files for day: {}".format(day))
 
-    return day
+    return args
 
 
-def run_script(day):
+def run_script(args):
+    day = args.day
+    part = "-p2" if args.part_two else "-p1"
+
     dir_name = "day/{}".format(num_to_words[day])
     script_filename = os.path.join(dir_name, "script.py")
     input_filename = os.path.join(dir_name, "input.txt")
@@ -25,17 +31,17 @@ def run_script(day):
         print("could not find files for day: {}\n".format(day))
         os._exit(1)
 
-    print("running: {}\n".format(dir_name))
+    print("running: {} {}\n".format(dir_name, part))
 
-    command = ["python3", script_filename, input_filename]
+    command = ["python3", script_filename, part, input_filename]
     result = subprocess.run(command, capture_output=True, text=True)
     answer = result.stdout.strip()
     print("Answer: {}".format(answer))
 
 
 def main():
-    day = get_day()
-    run_script(day)
+    args = get_args()
+    run_script(args)
 
 
 if __name__ == "__main__":

@@ -8,28 +8,37 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
-import utils
+import parse
 
 
-def parse_input_file():
-    content = utils.open_input_file()
-
+def parse_input_data(content):
     # create data structure
     # fit content into data structure
-
     data = None
     return data
 
 
-def solve_problem(data):
+def solve_part_one(data):
+    # solve the problem with the given data
+    return
+
+
+def solve_part_two(data):
     # solve the problem with the given data
     return
 
 
 def main():
-    data = parse_input_file()
-    answer = solve_problem(data)
-    print("Answer: {}".format(answer))
+    (content, part) = parse.parse_args()
+
+    data = parse_input_data(content)
+
+    if part == "p1":
+        answer = solve_part_one(data)
+    elif part == "p2":
+        answer = solve_part_two(data)
+
+    print(answer)
 
 
 if __name__ == "__main__":
