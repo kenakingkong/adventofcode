@@ -18,7 +18,6 @@ sys.path.append(str(Path(__file__).parent.parent.parent))
 
 import parse
 
-
 def parse_input_data(content):
     data = [[], []]
 

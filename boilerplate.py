@@ -1,6 +1,12 @@
 """
 	Problem Description:
-  	---
+  	
+    part 1:
+    
+
+    part 2:
+
+
 """
 
 import sys

@@ -53,7 +53,7 @@ def run_script(args):
         print("could not find files for day: {}\n".format(day))
         os._exit(1)
 
-    print("running tests: {}\n".format(dir_name))
+    print("running tests: {} {}\n".format(dir_name, flag))
 
     for file in test_files:
         test_filename = os.path.join(dir_name, file)
