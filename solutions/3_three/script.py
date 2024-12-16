@@ -2,7 +2,7 @@
 	Problem Description:
   	
     part 1:
-    
+    parse valid mul functions and run them
 
     part 2:
 
@@ -10,18 +10,18 @@
 """
 
 import sys
-import utils
-
 from pathlib import Path
+
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
 import parse
 
-
 def parse_input_data(content):
-    # create data structure
-    # fit content into data structure
-    data = None
+    data = []
+
+    for line in content:
+        data.append(line)
+
     return data
 
 

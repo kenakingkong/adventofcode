@@ -22,10 +22,7 @@ def get_day():
 def create_and_write_files(day):
     dir_name = get_dir_name(day)
     script_filename = os.path.join(dir_name, "script.py")
-    input_filename = os.path.join(dir_name, "input.txt")
-    p1_test_input_filename = os.path.join(dir_name, "p1_test_input.txt")
-    p2_test_input_filename = os.path.join(dir_name, "p2_test_input.txt")
-    data_files = input_filename, p1_test_input_filename, p2_test_input_filename
+    filenames = ["utils.py", "input.txt", "p1_test_input.txt", "p2_test_input.txt"]
 
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
@@ -39,10 +36,11 @@ def create_and_write_files(day):
             file.write(line)
     print("created file: {}".format(script_filename))
 
-    for data_file in data_files:
-        with open(data_file, "w") as file:
+    for filename in filenames:
+        new_filename = os.path.join(dir_name, filename)
+        with open(new_filename, "w") as file:
             file.write("")
-        print("created file: {}".format(data_file))
+        print("created file: {}".format(new_filename))
 
 
 def main():
